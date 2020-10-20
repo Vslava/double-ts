@@ -27,6 +27,11 @@ export default (): void => {
       ),
       handler: yargHandlerWrapper(CommandHandler.collect),
     })
+    .command({
+      command: 'rescan',
+      describe: 'Rescan all directories saved in the db',
+      handler: yargHandlerWrapper(CommandHandler.rescan),
+    })
     .scriptName('doubler')
     .strict()
     .demandCommand(1, 'You need at least one command before moving on')
