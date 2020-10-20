@@ -1,7 +1,4 @@
-import
-  fileCheckers,
-  { TFileChecker }
-from '../file-checkers';
+import fileCheckers, { TFileChecker } from '../file-checkers';
 
 export default (onlyImages?: boolean): TFileChecker[] => {
   const fileCheckersList: TFileChecker[] = [];

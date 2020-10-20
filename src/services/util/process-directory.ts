@@ -30,7 +30,7 @@ interface IArgs {
 export default async function processDirectory({
   dirpath,
   fileCheckers = [],
-  fileProcessor
+  fileProcessor,
 }: IArgs): Promise<void> {
   const dirItems = await fs.promises.opendir(dirpath);
 

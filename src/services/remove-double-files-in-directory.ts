@@ -16,9 +16,9 @@ async function fileProcessor(filePath: string): Promise<void> {
   }
 }
 
-export default async (dirpath: string): Promise<void> => {
-  return processDirectory({
+export default async (dirpath: string): Promise<void> => (
+  processDirectory({
     dirpath,
     fileProcessor: (filePath: string) => fileProcessor(filePath),
-  });
-};
+  })
+);

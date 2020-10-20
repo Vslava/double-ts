@@ -1,4 +1,4 @@
-import yargs, { Arguments } from "yargs";
+import yargs, { Arguments } from 'yargs';
 
 import './lib/init-dotenv';
 import CommandHandler, { TCommandHandler } from './command-handlers';

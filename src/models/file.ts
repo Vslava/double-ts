@@ -57,7 +57,7 @@ export default class File extends Model {
     let commonQuery = this.knexQuery().whereIn(
       'sign',
       this.knexQuery().select('sign').groupBy('sign').havingRaw('COUNT(*) > ?', 1),
-    ).orderBy('filepath')
+    ).orderBy('filepath');
 
     if (directoryPath) {
       commonQuery = commonQuery.where('filepath', 'like', `${directoryPath}%`);

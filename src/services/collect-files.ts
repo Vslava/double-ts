@@ -32,10 +32,10 @@ async function fileProcessor(filePath: string): Promise<void> {
   await saveInfoAboutFile(filePath);
 }
 
-export default async function collectFiles(
+export default async (
   dirpaths: string[],
   onlyImages: boolean,
-): Promise<void> {
+): Promise<void> => {
   const fileCheckers = makeFileCheckersList(onlyImages);
 
   await async.eachSeries(dirpaths, async (dirpath) => (

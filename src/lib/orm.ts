@@ -26,9 +26,9 @@ class ModelWithTimestamps extends Model {
   $beforeUpdate(): void {
     this.updated_at = new Date();
   }
-};
+}
 
-// eslint-disable-next-line prettier/prettier
 export {
+  // eslint-disable-next-line import/prefer-default-export
   ModelWithTimestamps as Model,
 };
