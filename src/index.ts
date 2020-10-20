@@ -65,6 +65,17 @@ export default (): void => {
       ),
       handler: yargHandlerWrapper(CommandHandler.scanFiles),
     })
+    .command({
+      command: 'remove-doubles <dirpath>',
+      describe: 'Remove files in the specified directory which have doubles in the db',
+      builder: (_yargs) => (
+        _yargs.positional('dirpath', {
+          describe: 'A directory where the files are being scanned',
+          type: 'string',
+        })
+      ),
+      handler: yargHandlerWrapper(CommandHandler.removeDoubles),
+    })
     .scriptName('doubler')
     .strict()
     .demandCommand(1, 'You need at least one command before moving on')
