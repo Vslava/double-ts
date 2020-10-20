@@ -32,6 +32,17 @@ export default (): void => {
       describe: 'Rescan all directories saved in the db',
       handler: yargHandlerWrapper(CommandHandler.rescan),
     })
+    .command({
+      command: 'doubles [dirpath]',
+      describe: 'Find doubles in the db',
+      builder: (_yargs) => (
+        _yargs.positional('dirpath', {
+          describe: 'A directory to filter files only in it',
+          type: 'string',
+        })
+      ),
+      handler: yargHandlerWrapper(CommandHandler.doubles),
+    })
     .scriptName('doubler')
     .strict()
     .demandCommand(1, 'You need at least one command before moving on')
