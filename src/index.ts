@@ -48,6 +48,23 @@ export default (): void => {
       describe: 'Purge the absent file paths in the db',
       handler: yargHandlerWrapper(CommandHandler.purge),
     })
+    .command({
+      command: 'scan-files [--show-doubles] <dirpath>',
+      describe: [
+        'Scan files in the specified directory and ',
+        'show the files with and without doubles in the db',
+      ].join(''),
+      builder: (_yargs) => (
+        _yargs.positional('dirpath', {
+          describe: 'A directory where the files are being scanned',
+          type: 'string',
+        }).option('show-doubles', {
+          describe: 'Show doubles for the files having them',
+          type: 'boolean',
+        })
+      ),
+      handler: yargHandlerWrapper(CommandHandler.scanFiles),
+    })
     .scriptName('doubler')
     .strict()
     .demandCommand(1, 'You need at least one command before moving on')
