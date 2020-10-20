@@ -43,6 +43,11 @@ export default (): void => {
       ),
       handler: yargHandlerWrapper(CommandHandler.doubles),
     })
+    .command({
+      command: 'purge',
+      describe: 'Purge the absent file paths in the db',
+      handler: yargHandlerWrapper(CommandHandler.purge),
+    })
     .scriptName('doubler')
     .strict()
     .demandCommand(1, 'You need at least one command before moving on')
