@@ -4,10 +4,11 @@
   "compilerOptions": {
     "outDir": "./dist",
     "rootDir": "./src",
+    "downlevelIteration": true
   },
 
   "include": [
     "src/**/*",
-    "types/**/*",
+    "types/**/*"
   ]
 }
