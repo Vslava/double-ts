@@ -33,7 +33,7 @@ export default class File extends Model {
     return this.knexQuery().orderBy('filepath').stream();
   }
 
-  static async* findAllGen() {
+  static async* findAllGen(): AsyncGenerator<File> {
     const size = 100;
     let offset = 0;
 

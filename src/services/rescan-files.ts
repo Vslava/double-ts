@@ -5,10 +5,8 @@ import Logger from '../loggers';
 import isFileExist from './util/is-file-exist';
 import createFileSign from './util/create-file-sign';
 
-export default async (): Promise<void> => {
-  const allFilesGenerator = await File.findAllGen();
-
-  return async.eachSeries(allFilesGenerator, async (file) => {
+export default async (): Promise<void> => (
+  async.eachSeries(File.findAllGen(), async (file) => {
     const { filepath } = file;
 
     if (await isFileExist(filepath)) {
@@ -22,5 +20,5 @@ export default async (): Promise<void> => {
     } else {
       Logger.fileAbsent(filepath);
     }
-  });
-};
+  })
+);
