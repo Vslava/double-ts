@@ -12,6 +12,7 @@ const yargHandlerWrapper = (handler: TCommandHandler) => (
 );
 
 export default (): void => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   yargs
     .command({
       command: 'collect [--only-images] <dirpath>',
