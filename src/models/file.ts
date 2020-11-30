@@ -25,7 +25,7 @@ export default class File extends Model {
     return this.$query().patchAndFetchById(this.$id(), attrs);
   }
 
-  static async deleteById(id: any): Promise<void> {
+  static async deleteById(id: number): Promise<void> {
     await this.query().deleteById(id);
   }
 
